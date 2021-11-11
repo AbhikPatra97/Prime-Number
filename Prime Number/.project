@@ -1,17 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<projectDescription>
-	<name>Prime Number</name>
-	<comment></comment>
-	<projects>
-	</projects>
-	<buildSpec>
-		<buildCommand>
-			<name>org.eclipse.jdt.core.javabuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-	</buildSpec>
-	<natures>
-		<nature>org.eclipse.jdt.core.javanature</nature>
-	</natures>
-</projectDescription>
+package Demo3;
+
+import java.util.Scanner;
+
+public class Employee{
+	
+	static String name;
+    static String desig;
+    static int salary_Programmer=20000;
+    static int salary_Manager=30000;
+    static int salary_Tester=15000;
+
+	public static void main(String args[]) {
+	    
+		Scanner sc = new Scanner(System.in);
+		int n=1;
+		
+		Employee emp[] = new Employee[n];
+		emp[0] = new Employee();
+		System.out.println("Enter " + 1 + " Employee data :---");
+		System.out.print("Enter employee name :");
+		emp[0].name = sc.next();
+		System.out.print("Enter employee designation :programmer/manager/tester");
+		emp[0].desig = sc.next();
+		
+		System.out.println("Enter 'y' for Yes and 'n' for No");
+		String s=sc.nextLine();
+		
+		if(s.equalsIgnoreCase("y")) {
+			++n;
+		}
+			for (int i = 1; i < n; i++) 
+			{
+				emp[i] = new Employee();
+				System.out.println("Enter " + (i + 1) + " Employee data :");
+				System.out.print("Enter employee name :");
+				emp[i].name = sc.next();
+				System.out.print("Enter employee designation :programmer/manager/tester");
+				emp[i].desig = sc.next();
+				}
+		if(s.equalsIgnoreCase("n")) {
+			
+			System.out.println("\n\n**** All Employee Details are :****\n");
+			
+            for (int i = 0; i < n; i++) 
+            {
+            	if(emp[i].desig.equals("programmer")) 
+            	{
+            		System.out.println("Employee Name, Designation, Salary :" + " " + emp[i].name + " " + emp[i].desig + " " + salary_Programmer );
+            	}
+            	else if(emp[i].desig.equals("manager")) 
+            	{
+            		System.out.println("Employee Name, Designation, Salary :" + " " + emp[i].name + " " + emp[i].desig + " " + salary_Manager);
+            	}
+            	else if(emp[i].desig.equals("tester")) 
+            	{
+            		System.out.println("Employee Name, Designation, Salary :" + " " + emp[i].name + " " + emp[i].desig + " " + salary_Tester );
+            	}
+            }
+          }
+		}
+	}
